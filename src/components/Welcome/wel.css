@@ -1,0 +1,52 @@
+ 
+  .containerrr {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .welcome-text {
+    margin-top: 10vh;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #333;
+    letter-spacing: 2px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .cbtn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    font-size: 1.2rem;
+  }
+  
+  .cbtn:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      width: 80%;
+    }
+  
+    h1 {
+      font-size: 2.5rem;
+    }
+  
+    .cbtn {
+      padding: 12px 24px;
+    }
+  }
+  
