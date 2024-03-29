@@ -3,6 +3,8 @@ import "./confirm.css";
 import { Context } from '../Context/ContextStore';
 import { Link } from "react-router-dom";
 import Bill from '../Bill/Bill';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ConfireOrder() {
     const [shippingInfo, setShippingInfo] = useState({
@@ -30,9 +32,13 @@ function ConfireOrder() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission, you can send the shippingInfo to the backend or process it as needed
         console.log('Shipping Information:', shippingInfo);
+        
+        
     };
+    function orderplacedhandle(){
+        toast.success("Order Placed Sucessfully");
+    }
 
     return (
         <div className="containerr">
@@ -51,7 +57,7 @@ function ConfireOrder() {
                 <input className='inputt' type="text" name="city" placeholder="City" value={shippingInfo.city} onChange={handleInputChange} required />
                 <input className='inputt' type="text" name="zip" placeholder="ZIP Code" value={shippingInfo.zip} onChange={handleInputChange} required />
                 <input className='inputt' type="tel" name="phone" placeholder="Phone Number" value={shippingInfo.phone} onChange={handleInputChange} required />
-                <button className='buttonn' type="submit"> <Link to="/bill" element={<Bill/>} style={{color:"white", textDecoration:"none"}}>Confirm Order</Link></button>
+                <button onClick={orderplacedhandle} className='buttonn' type="submit"> <Link to="/bill" element={<Bill/>} style={{color:"white", textDecoration:"none"}}>Confirm Order</Link></button>
             </form>
         </div>
     );

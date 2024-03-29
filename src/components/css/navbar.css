@@ -1,0 +1,36 @@
+/* navbar.css */
+
+.navbar {
+    background-color: #333; /* Dark background color for the navbar */
+  }
+  
+  .navbar-brand img {
+    margin-top: 5px; /* Adjust the logo's vertical alignment */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #fff; /* White color for the toggler icon */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff; /* White color for the nav links */
+    margin-right: 15px; /* Adjust spacing between nav items */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #f8b400; /* Yellow color on hover */
+  }
+  
+  .dropdown-menu {
+    background-color: #333; /* Dark background color for the dropdown menu */
+  }
+  
+  .dropdown-item {
+    color: #fff; /* White color for dropdown items */
+  }
+  
+  .dropdown-item:hover {
+    background-color: #555; /* Darker background on hover */
+    color: #f8b400; /* Yellow color on hover */
+  }
+  

@@ -2,9 +2,13 @@
 
 import React from 'react';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function CartCard(props) {
   const handleDelete = () => {
     props.removeItemFromCart(props.data.id);
+    toast.error("Item deleted from cart successfully!");
   };
 
   return (

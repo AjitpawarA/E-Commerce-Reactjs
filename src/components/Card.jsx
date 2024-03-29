@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import { Context } from "./Context/ContextStore";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Card(props) {
   const { cartdata, setcartdata } = useContext(Context);
 
   function addtocarthandle() {
     setcartdata((prevCartData) => [...prevCartData, props.data]);
+    toast.success("Item added to cart successfully!"); // Adjusted toast message
   }
 
-  console.log(props.data);
   return (
     <div className="col">
       <div className="card shadow-sm">

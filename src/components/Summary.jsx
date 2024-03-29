@@ -20,12 +20,19 @@ function Summary() {
                     <li className="list-group-item">Total Amount : ${totalamount}</li>
                 </ul>
                 <div className="card-footer">
-                    <button type="button" className="btn btn-primary" style={{ marginRight: '10px' }}>
+                    {
+                        totalamount > 0 ? (
+                            <button type="button" className="btn btn-primary" style={{ marginRight: '10px' }}>
                         <Link to="/confirmorder" style={{ textDecoration: 'none', color: 'white' }}> Place Order</Link>
                     </button>
-                    <button type="button" className="btn btn-primary">
+                        ):(
+                            <button type="button" className="btn btn-primary">
                     <Link to="/" style={{ textDecoration: 'none', color: 'white' }}> Shop More</Link>
                     </button>
+                        )
+                    }
+                    
+                    
                 </div>
             </div>
         </div>

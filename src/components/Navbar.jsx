@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./css/navbar.css";
+import "./css/navbar.css"; // Importing the custom CSS file
 import amazon from "./a.png";
 import { Link } from "react-router-dom";
 import { Context } from "./Context/ContextStore";
@@ -8,7 +8,7 @@ function Navbar() {
   const selectcat = useContext(Context);
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img src={amazon} alt="" style={{ width: "90px" }} />
@@ -27,27 +27,10 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#" style={{
-                    border: "1px solid black",
-                    width: "100px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    borderRadius: "15px",
-                    backgroundColor: "rgb(11, 0, 168)",
-                    color: "white",
-                    marginLeft:"10px",
-                    marginRight:"10px"
-                  }}>
-                  <Link
-                    to={"/"}
-                    style={{ color: "black", textDecoration: "none" }}
-                  >
-                    Home
-                  </Link>
+                <a className="nav-link active" aria-current="page" href="#">
+                  <Link to={"/"} style={{textDecoration:"none", color:"white"}}>Home</Link>
                 </a>
               </li>
-              
               <li className="nav-item">
                 <a
                   className="nav-link"
@@ -55,20 +38,10 @@ function Navbar() {
                   onClick={() => {
                     selectcat.setSelectedCategory(4);
                   }}
-                  style={{
-                    border: "1px solid black",
-                    width: "100px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    borderRadius: "15px",
-                    backgroundColor: "rgb(11, 0, 168)",
-                    color: "white",
-                    marginLeft:"10px",
-                    marginRight:"10px"
-                  }}
                 >
-                  Shooes
+                  <Link to={"/"} style={{textDecoration:"none", color:"white"}}>
+                    Shooes
+                  </Link>
                 </a>
               </li>
               <li className="nav-item">
@@ -78,21 +51,10 @@ function Navbar() {
                   onClick={() => {
                     selectcat.setSelectedCategory(1);
                   }}
-
-                  style={{
-                    border: "1px solid black",
-                    width: "100px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    borderRadius: "15px",
-                    backgroundColor: "rgb(11, 0, 168)",
-                    color: "white",
-                    marginLeft:"10px",
-                    marginRight:"10px"
-                  }}
                 >
-                  Cloths
+                  <Link to={"/"} style={{textDecoration:"none", color:"white"}}>
+                    Cloths
+                  </Link>
                 </a>
               </li>
               <li className="nav-item">
@@ -102,24 +64,12 @@ function Navbar() {
                   onClick={() => {
                     selectcat.setSelectedCategory(2);
                   }}
-
-                  style={{
-                    border: "1px solid black",
-                    width: "100px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    borderRadius: "15px",
-                    backgroundColor: "rgb(11, 0, 168)",
-                    color: "white",
-                    marginLeft:"10px",
-                    marginRight:"10px"
-                  }}
                 >
-                  Electronics
+                  <Link to={"/"} style={{textDecoration:"none", color:"white"}}>
+                    Electronics
+                  </Link>
                 </a>
               </li>
-
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -127,18 +77,6 @@ function Navbar() {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                  style={{
-                    border: "1px solid black",
-                    width: "100px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    borderRadius: "15px",
-                    backgroundColor: "rgb(107, 5, 250)",
-                    color: "white",
-                    marginLeft:"10px",
-                    marginRight:"10px"
-                  }}
                 >
                   Categories
                 </a>
@@ -155,8 +93,6 @@ function Navbar() {
                     </a>
                   </li>
                   <li>
-                  <i classname="fa-solid fa-shoe-prints" />
-
                     <a
                       className="dropdown-item"
                       href="#"
@@ -168,7 +104,6 @@ function Navbar() {
                     </a>
                   </li>
                   <li>
-                  <i className="fa-solid fa-laptop-medical" />
                     <a
                       className="dropdown-item"
                       href="#"
@@ -180,56 +115,28 @@ function Navbar() {
                     </a>
                   </li>
                   <li>
-                  
-
                     <a
                       className="dropdown-item"
                       href="#"
                       onClick={() => {
                         selectcat.setSelectedCategory(1);
                       }}
-                    ><i className="fa-solid fa-shirt"/>
+                    >
                       Cloths
                     </a>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#" style={{
-                    border: "1px solid black",
-                    width: "100px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    borderRadius: "15px",
-                    backgroundColor: "rgb(250, 107, 5)",
-                    color: "white",
-                    marginLeft:"10px",
-                    marginRight:"10px"
-                  }}>
-                    <i className="fa-solid fa-cart-shopping" style={{marginRight:"10px"}} />
-
-                  <Link
-                    to={"/cart"}
-                    style={{ color: "black", textDecoration: "none" }}
-                    
-                  >
+                <a className="nav-link" href="#">
+                  <Link to={"/cart"} style={{textDecoration:"none", color:"white",display:"flex", gap:"5px", alignItems:"center", justifyContent:"center",
+                textAlign:"center", marginLeft:"20px"}}>
+                    <i className="fa-solid fa-cart-shopping" />
                     Cart
                   </Link>
                 </a>
               </li>
             </ul>
-            {/* <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form> */}
           </div>
         </div>
       </nav>

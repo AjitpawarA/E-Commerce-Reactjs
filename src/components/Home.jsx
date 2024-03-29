@@ -5,29 +5,30 @@ import { Context } from "./Context/ContextStore";
 import Welcome from "./Welcome/Welcome";
 
 function Home() {
-    const[data,setData]=useState([])
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true); // State to manage loading status
     const selectcat = useContext(Context);
-    console.log("cat"+selectcat.selectedCategory);
 
     useEffect(() => {
-      let url = "https://api.escuelajs.co/api/v1/products/";
-  
-      if (selectcat.selectedCategory) {
-        url += `?categoryId=${selectcat.selectedCategory}`;
-      }
-  
-      fetch(url)
-        .then((res) => res.json())
-        .then((d) => setData(d));
-    }, [selectcat.selectedCategory]); 
-  
-    console.log(data);
-  console.log(data);
-  return (
-    <div>
-      <>
-      <Welcome/>
-        <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
+        let url = "https://api.escuelajs.co/api/v1/products/";
+
+        if (selectcat.selectedCategory) {
+            url += `?categoryId=${selectcat.selectedCategory}`;
+        }
+
+        fetch(url)
+            .then((res) => res.json())
+            .then((d) => {
+                setData(d);
+                setLoading(false); // Set loading to false when data is fetched
+            });
+    }, [selectcat.selectedCategory]);
+
+    return (
+        <div>
+            <>
+                <Welcome />
+                <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
           <symbol id="check2" viewBox="0 0 16 16">
             <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
           </symbol>
@@ -42,23 +43,26 @@ function Home() {
             <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
           </symbol>
         </svg>
-        <main>
-          
-          <div className="album py-5 bg-body-tertiary">
-            <div className="container">
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                {
-                    data.map((e)=>[
-                        <Card data={e}/>
-                    ])
-                }
-              </div>
-            </div>
-          </div>
-        </main>
-      </>
-    </div>
-  );
+                <main>
+                    <div className="album py-5 bg-body-tertiary">
+                        <div className="container">
+                            {loading ? ( // Conditional rendering for loaders
+                                <div className="loader-container">
+                                    <div class="loader"></div>
+                                </div>
+                            ) : (
+                                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                    {data.map((e) => (
+                                        <Card data={e} key={e.id} />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </main>
+            </>
+        </div>
+    );
 }
 
 export default Home;
